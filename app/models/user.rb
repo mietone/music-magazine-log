@@ -1,4 +1,4 @@
-class User < AcitveRecord::Base
+class User < ActiveRecord::Base
   has_many :magazines
 
   has_secure_password
