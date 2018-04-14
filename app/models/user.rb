@@ -2,4 +2,17 @@ class User < ActiveRecord::Base
   has_many :magazines
 
   has_secure_password
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :password, presence: true
+
+  def slug
+    username.downcase.gsub(" ", "-")
+  end
+
+  def find_by_slug(slug)
+    User.all.find {|user| user.slug == slug }
+  end
+
 end
