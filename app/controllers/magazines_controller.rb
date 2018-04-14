@@ -8,4 +8,7 @@ class MagazinesController < ApplicationController
       redirect "/users/login"
     end
   end
+
+
+  
 end

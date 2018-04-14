@@ -1,0 +1,14 @@
+<h1>Welcome <%= @user.username %>!</h1>
+
+<h2>Your magazines list:</h2>
+
+<ul style="list-style: none;">
+  <% if !@user.magazines.empty? %>
+    <% @user.magazines.all.each do |mag| %>
+      <a href="/magazines/<%= mag.id %>"><li><%= mag.name %> (<%= mag.year %> / <%= mag.month %>)</li></a>
+    <% end %>
+  <% else %>
+    <p>You don't have any magazines in your list yet.</p>
+    <a href="/magazines/new"><h4>Add a magazine to your list:</h4></a>
+  <% end %>
+</ul>

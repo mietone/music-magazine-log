@@ -9,10 +9,10 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    user = User.new(params)
-    if user.save
-      session[:user_id] = user.id
-      redirect "/users/#{user.slug}"
+    @user = User.new(params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.slug}"
     else
       redirect "/signup"
     end
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect "/magazines"
     else
+      # message "Invalid login. Please try again or create an account."
       redirect "/signup"
     end
   end
