@@ -9,6 +9,14 @@ class MagazinesController < ApplicationController
     end
   end
 
+  get '/magazines/new' do
+    if logged_in?
+      erb :'/magazines/create_mag'
+    else
+      redirect "/login"
+    end
+  end
 
-  
+
+
 end
