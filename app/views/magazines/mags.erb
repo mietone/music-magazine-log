@@ -1,0 +1,11 @@
+<ul style="list-style: none;">
+  <% @mags.each do |mag| %>
+    <li>Name: <%= mag.name %></li>
+    <li>Year/Month:  <%= mag.year %>/<%= mag.month %></li>
+    <li>Cover: <%= mag.cover %></li>
+    <li>Condition: <%= mag.condition %></li>
+    <li>Notes: <%= mag.notes %></li>
+    <li>Owner: <%= mag.user.username %></li>
+    <br><br>
+  <% end %>
+</ul>
