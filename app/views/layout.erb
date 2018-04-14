@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Music Magazine Log</title>
+  </head>
+  <body>
+    <nav>
+      <% if logged_in? %>
+
+        <a href="/magazines"> View All Magazines </a>
+        <a href="/magazines/new"> Add A Magazine </a>
+        <a href="/logout"> Log Out </a>
+        <p>Logged in as: <%= current_user.username %></p>
+
+      <% else %>
+
+        <a href="/signup">Sign Up</a>
+        <a href="/login"> Log In </a>
+
+      <%end %>
+
+    </nav>
+
+    <div class="container">
+      <h1>Music Magazine Log</h1>
+      <%= yield %>
+    </div>
+
+  </body>
+</html>
