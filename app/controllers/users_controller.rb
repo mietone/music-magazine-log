@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  use Rack::Flash
 
   get '/signup' do
     if logged_in?
+      flash[:message] = "You're already logged in."
       redirect "/magazines"
     else
       erb :"/users/signup"
@@ -12,6 +14,8 @@ class UsersController < ApplicationController
     @user = User.new(params)
     if @user.save
       session[:user_id] = @user.id
+
+      flash[:message] = "Signup was successful and you're logged in."
       redirect "/users/#{@user.slug}"
     else
       redirect "/signup"
@@ -20,7 +24,8 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect "/users/#{current_user.slug}"
+      flash[:message] = "You're already logged in."
+      redirect "/magazines"
     else
       erb :"/users/login"
     end
@@ -30,9 +35,10 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      flash[:message] = "You have successfully logged in."
       redirect "/magazines"
     else
-      # message "Invalid login. Please try again or create an account."
+      flash[:message] = "Invalid login. Please try again or create an account."
       redirect "/signup"
     end
   end
@@ -40,7 +46,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.destroy
-      # message "You have successfully logged out."
+      flash[:message] = "You have successfully logged out."
       redirect "/login"
     else
       redirect "/"
