@@ -6,6 +6,12 @@
     <li>Condition: <%= mag.condition %></li>
     <li>Notes: <%= mag.notes %></li>
     <li>Owner: <%= mag.user.username %></li>
+
+    <% if logged_in? %>
+      <% if mag.user_id == current_user.id %>
+        <a href="/magazines/<%= mag.id %>/edit">Edit</a>
+      <% end %>
+    <% end %>
     <br><br>
   <% end %>
 </ul>
