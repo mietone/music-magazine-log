@@ -1,0 +1,14 @@
+<h2><%= @mag.name %></h2>
+
+Year: <%= @mag.year %><br>
+Month: <%= @mag.month %><br>
+Cover: <%= @mag.cover %><br>
+Condition: <%= @mag.condition %><br>
+Notes: <%= @mag.notes %><br><br>
+
+<form action="/magazines/<%= @mag.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value=" Delete This Magazine">
+</form>
+<br>
+<a href="/magazines/<%= @mag.id %>/edit">Edit This Magazine</a>
