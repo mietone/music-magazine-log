@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect "/magazines"
+      redirect "/users/#{current_user.slug}"
     else
       erb :"/users/login"
     end

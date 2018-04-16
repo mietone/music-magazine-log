@@ -62,4 +62,14 @@ class MagazinesController < ApplicationController
     end
   end
 
+  delete '/magazines/:id/delete' do
+    @mag = Magazine.find_by(id: params[:id])
+    if logged_in?
+      @mag.destroy
+      redirect "/magazines"
+    else
+      redirect "/login"
+    end
+  end
+
 end
