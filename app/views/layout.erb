@@ -5,6 +5,9 @@
   </head>
   <body>
     <nav>
+
+      <h1>Music Magazine Log</h1>
+
       <% if logged_in? %>
 
         <a href="/magazines"> View All Magazines </a>
@@ -22,7 +25,12 @@
     </nav>
 
     <div class="container">
-      <h1>Music Magazine Log</h1>
+      <div class="flash-message">
+        <% if flash.has?(:message) %>
+          <%= flash[:message] %>
+        <% end %>
+      </div>
+
       <%= yield %>
     </div>
 

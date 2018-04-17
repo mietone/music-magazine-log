@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       flash[:message] = "Signup was successful and you're logged in."
       redirect "/users/#{@user.slug}"
     else
+      flash[:message] = "All fields are required to create an account."
       redirect "/signup"
     end
   end

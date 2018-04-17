@@ -23,6 +23,7 @@ class MagazinesController < ApplicationController
       if @magazine.save
         redirect "/magazines/#{@magazine.id}"
       else
+        flash[:message] = "Magazine name is required."
         redirect "/magazines/new"
       end
     else
@@ -45,6 +46,7 @@ class MagazinesController < ApplicationController
       if current_user.magazines.include?(@mag)
         erb :'/magazines/edit_mag'
       else
+        flash[:message] = "Sorry, you can not edit this magazine."
         redirect "/magazines"
       end
     else
@@ -55,9 +57,11 @@ class MagazinesController < ApplicationController
   patch '/magazines/:id' do
     @mag = Magazine.find_by(id: params[:id])
     if params[:name].empty?
+      flash[:message] = "Magazine name is required."
       redirect "/magazines/#{@mag.id}/edit"
     else
       @mag.update(name: params[:name], year: params[:year], month: params[:month], cover: params[:cover], condition: params[:condition], notes: params[:notes])
+      flash[:message] = "You have successfully edited the magazine."
       redirect "/magazines/#{@mag.id}"
     end
   end
@@ -66,6 +70,7 @@ class MagazinesController < ApplicationController
     @mag = Magazine.find_by(id: params[:id])
     if logged_in?
       @mag.destroy
+      flash[:message] = "You have successfully deleted the magazine."
       redirect "/magazines"
     else
       redirect "/login"
