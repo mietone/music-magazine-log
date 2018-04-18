@@ -1,4 +1,5 @@
 class MagazinesController < ApplicationController
+  use Rack::Flash
 
   get '/magazines' do
     if logged_in?

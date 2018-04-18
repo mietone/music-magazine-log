@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      flash[:message] = "You're already logged in."
+      # flash[:message] = "You're logged in."
       redirect "/magazines"
     else
       erb :"/users/login"

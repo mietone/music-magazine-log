@@ -19,5 +19,21 @@ body {
 }
 
 .bg-nav {
-  background-color: #44515b;
+  background-color: #343434;
+}
+
+.page-title {
+  color: #A2A2A2;
+}
+
+.card-title {
+  color: #16B1B5;
+}
+
+.highlight {
+  color: #16B1B5;
+}
+
+.flash-message {
+  color: #16B1B5;
 }

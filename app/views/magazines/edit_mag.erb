@@ -1,35 +1,39 @@
-<h2>Edit <%= @mag.name %></h2>
+<h2 class="my-4 page-title">Edit <%= @mag.name %></h2>
 
-<form action="/magazines/<%= @mag.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+<div class="row">
+  <div class="col-lg-4 col-sm-6 portfolio-item">
+    <form action="/magazines/<%= @mag.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
 
 
-  <label for="name">Magazine Name:</label>
-  <input type="text" name="name" id="name" placeholder="<%= @mag.name %>"><br><br>
+      <label for="name">Magazine Name:</label>
+      <input type="text" name="name" id="name" placeholder="<%= @mag.name %>"><br><br>
 
-  <label for="year">Year:</label>
-  <input type="number" name="year" value="N/A" id="year" placeholder="<%= @mag.year %>"><br><br>
+      <label for="year">Year:</label>
+      <input type="number" name="year" value="N/A" id="year" placeholder="<%= @mag.year %>"><br><br>
 
-  <label for="month">Month:</label>
-  <input type="text" name="month" value="N/A" id="month" placeholder="<%= @mag.month %>"><br><br>
+      <label for="month">Month:</label>
+      <input type="text" name="month" value="N/A" id="month" placeholder="<%= @mag.month %>"><br><br>
 
-  <label for="cover">Artist on Cover:</label>
-  <input type="text" name="cover" value="N/A" id="cover" placeholder="<%= @mag.cover %>"><br><br>
+      <label for="cover">Artist on Cover:</label>
+      <input type="text" name="cover" value="N/A" id="cover" placeholder="<%= @mag.cover %>"><br><br>
 
-  <label for="condition">Condition:</label>
-  <select name="condition" value="<%= @mag.condition %>">
-    <option value="N/A">N/A</option>
-    <option value="Excellent">Excellent</option>
-    <option value="Very Good">Very Good</option>
-    <option value="Good">Good</option>
-    <option value="Fair">Fair</option>
-    <option value="Poor">Poor</option>
-  </select>
-  <br><br>
+      <label for="condition">Condition:</label>
+      <select name="condition" value="<%= @mag.condition %>">
+        <option value="N/A">N/A</option>
+        <option value="Excellent">Excellent</option>
+        <option value="Very Good">Very Good</option>
+        <option value="Good">Good</option>
+        <option value="Fair">Fair</option>
+        <option value="Poor">Poor</option>
+      </select>
+      <br><br>
 
-  <textarea type="text" id="notes" name="notes" placeholder="<%= @mag.notes %>" rows="5" cols="50"></textarea>
+      <textarea type="text" id="notes" name="notes" placeholder="<%= @mag.notes %>" rows="5" cols="50"></textarea>
 
-  <br><br>
+      <br><br>
 
-  <input type="submit" value=" Update This Magazine ">
-</form>
+      <input type="submit" value=" Update This Magazine ">
+    </form>
+  </div>
+</div>
