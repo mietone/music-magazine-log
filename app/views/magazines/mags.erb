@@ -1,17 +1,30 @@
-<ul style="list-style: none;">
-  <% @mags.each do |mag| %>
-    <li>Name: <%= mag.name %></li>
-    <li>Year/Month:  <%= mag.year %>/<%= mag.month %></li>
-    <li>Cover: <%= mag.cover %></li>
-    <li>Condition: <%= mag.condition %></li>
-    <li>Notes: <%= mag.notes %></li>
-    <li>Owner: <%= mag.user.username %></li>
+<h1 class="my-4">All Magazines</h1>
 
-    <% if logged_in? %>
-      <% if mag.user_id == current_user.id %>
-        <a href="/magazines/<%= mag.id %>/edit">Edit</a>
-      <% end %>
-    <% end %>
-    <br><br>
+<div class="row">
+  <% @mags.each do |mag| %>
+    <div class="col-lg-4 col-sm-6 portfolio-item">
+      <div class="card h-100">
+        <!-- <a href="#"><img class="card-img-top"></a> -->
+          <div class="card-body">
+            <h4 class="card-title">
+              Name: <%= mag.name %>
+            </h4>
+            <ul class="card-text" style="list-style: none;">
+              <li>Year/Month:  <%= mag.year %>/<%= mag.month %></li>
+              <li>Cover: <%= mag.cover %></li>
+              <li>Condition: <%= mag.condition %></li>
+              <li>Notes: <%= mag.notes %></li>
+              <li>Owner: <%= mag.user.username %></li>
+
+              <% if logged_in? %>
+                <% if mag.user_id == current_user.id %>
+                  <a href="/magazines/<%= mag.id %>/edit">Edit</a>
+                <% end %>
+              <% end %>
+              <br><br>
+            </ul>
+          </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
