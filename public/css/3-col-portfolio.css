@@ -42,23 +42,6 @@ body {
   color: #16B1B5;
 }
 
-/*dl {
-  padding: 0.5em;
- }
-dt, dd {
-  float: left;
-  margin-bottom: 0.5em
-}
-dt {
-  clear: both;
-  width: 100px;
-  text-align: right;
-  color: green;
-}
-dd {
-  margin: 0 0 0 10px;
-}*/
-
 dl {
   padding-left: 1em;
  }
@@ -71,7 +54,7 @@ dt {
   width: 100px;
   text-align: right;
   font-weight: bold;
-  color: green;
+  color: #A0A0A0;
  }
 
 dd {
