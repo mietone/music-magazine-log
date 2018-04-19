@@ -7,22 +7,34 @@
         <!-- <a href="#"><img class="card-img-top"></a> -->
         <div class="card-body">
           <h4 class="card-title">
-            Name: <%= mag.name %>
+            <%= mag.name %>
           </h4>
-          <ul class="card-text" style="list-style: none;">
-            <li>Year/Month:  <%= mag.year %>/<%= mag.month %></li>
-            <li>Cover: <%= mag.cover %></li>
-            <li>Condition: <%= mag.condition %></li>
-            <li>Notes: <%= mag.notes %></li>
-            <li>Owner: <%= mag.user.username %></li>
 
-            <% if logged_in? %>
-              <% if mag.user_id == current_user.id %>
-                <a href="/magazines/<%= mag.id %>/edit">Edit</a>
-              <% end %>
-            <% end %>
-            <br><br>
-          </ul>
+          <dl class="card-text">
+            <dt>Year/Month:  </dt>
+            <dd><%= mag.year %>/<%= mag.month %></dd>
+            <dt>Cover: </dt>
+            <dd><%= mag.cover %></dd>
+            <dt>Condition: </dt>
+            <dd><%= mag.condition %></dd>
+            <dt>Notes: </dt>
+            <dd><%= mag.notes %></dd>
+            <dt>Owner: </dt>
+            <dd><%= mag.user.username %></dd>
+          </dl>
+          <dl class="">
+            <dt>
+              <dd>
+                <% if logged_in? %>
+                  <% if mag.user_id == current_user.id %>
+                  <input type="button" class="btn btn-info" value="Edit" onclick="location.href = '/magazines/<%= mag.id %>/edit';">
+                  <% end %>
+                <% end %>
+              </dd>
+            </dt>
+
+          </dl>
+
         </div>
       </div>
     </div>
