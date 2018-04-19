@@ -7,7 +7,6 @@
     <% @user.magazines.all.each do |mag| %>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <!-- <a href="#"><img class="card-img-top"></a> -->
           <div class="card-body">
             <h4 class="card-title">
               <%= mag.name %>
@@ -24,6 +23,23 @@
               <dt>Owner: </dt>
               <dd><%= mag.user.username %></dd>
             </dl>
+            <dl class="">
+              <dt>
+                <dd>
+                  <% if logged_in? %>
+                    <% if mag.user_id == current_user.id %>
+                    <input type="button" class="btn btn-info" value="Edit" onclick="location.href = '/magazines/<%= mag.id %>/edit';">
+                    <br><br>
+                    <form action="/magazines/<%= mag.id %>/delete" method="post">
+                      <input type="hidden" name="_method" value="delete">
+                      <input type="submit" value=" Delete This Magazine">
+                    </form>
+
+                    <% end %>
+                  <% end %>
+                </dd>
+              </dt>
+            </dl>
           </div>
         </div>
       </div>
@@ -35,6 +51,5 @@
   <% end %>
   <div class="col-lg-12">
     <input type="button" class="btn btn-info" value="Add a magazine to your log" onclick="location.href = '/magazines/new';">
-    <!-- <a href="/magazines/new"><h4>Add a magazine to your log.</h4></a> -->
   </div>
 </div>
