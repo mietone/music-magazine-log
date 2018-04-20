@@ -10,7 +10,9 @@ Music Magazine Log is an app to log your magazines built with Sinatra and Active
 
 
 **Contributing**
+
 Bug reports and pull requests are welcome on GitHub at https://github.com/alexisadorn/Sinatra-Adventure-Bucket-List.
 
 **License**
+
 The project is available as open source under the terms of the MIT License.
