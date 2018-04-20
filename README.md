@@ -13,7 +13,7 @@ Music Magazine Log is an app to log your magazines built with Sinatra and Active
 
 ### Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mietone/music-magazine-log.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mietone/music-magazine-log. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 
 ### License
