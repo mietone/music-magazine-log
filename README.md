@@ -1,8 +1,10 @@
 # Music Magazine Log
+
 Music Magazine Log is an app to log your magazines built with Sinatra and ActiveRecord. Once you sign up, you can see other user's magazines but only modify your own.
 
 
 ### Installation
+
 1. Clone this repo
 2. Run rake db:migrate
 3. Run shotgun
