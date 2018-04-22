@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
+    binding.pry
     if logged_in?
       # flash[:message] = "You're logged in."
       redirect "/magazines"
