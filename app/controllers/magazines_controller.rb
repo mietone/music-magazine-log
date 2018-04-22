@@ -22,6 +22,7 @@ class MagazinesController < ApplicationController
     @magazine = current_user.magazines.build(params)
     if logged_in?
       if @magazine.save
+        flash[:message] = "You have successfully added a magazine."
         redirect "/magazines/#{@magazine.id}"
       else
         flash[:message] = "Magazine name is required."
